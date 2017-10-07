@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+    <title>{% block title %}Welcome to blog!{% endblock %}</title>
+    {% block stylesheets %}
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
+    {% endblock %}
+    {% block stylesheets_custom %}
+    {% endblock %}
+  </head>
+  <body>
+
+    <div class="collapse bg-dark" id="navbarHeader">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 py-4">
+            <h4 class="text-white">ABOUT</h4>
+            <p class="text-muted">This BLOG developed via Symfony2 framework</p>
+          </div>
+          <div class="col-sm-4 py-4">
+            <h4 class="text-white">CATEGORIES</h4>
+            <ul class="list-unstyled">
+              {% for key, value in custom_helper.getPostCategories() %}
+               <li><a href="{{ path('category', {'slug' :value.getSlug()}) }}" class="text-white">{{ value.getTitle() }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navbar navbar-dark bg-dark">
+      <div class="container d-flex justify-content-between">
+        <a href="{{ path('index') }}">HOME</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+
+    {% block body %}{% endblock %}
+
+    {% block javascripts %}
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{ asset('js/popper.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{{ asset('js/ie10-viewport-bug-workaround.js') }}"></script>
+    {% endblock %}
+  </body>
+</html>

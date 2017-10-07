@@ -1,0 +1,26 @@
+# src/AppBundle/Resources/config/admin.yml
+
+services:
+    admin.category:
+        class: AppBundle\Admin\CategoryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Category" }
+        arguments:
+            - ~
+            - AppBundle\Entity\Category
+            - ~
+        calls:
+            - [ setTranslationDomain, [AppBundle]]
+        public: true
+
+    admin.post:
+        class: AppBundle\Admin\BlogPostAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Blog Post" }
+        arguments:
+            - ~
+            - AppBundle\Entity\BlogPost
+            - ~
+        calls:
+            - [ setTranslationDomain, [AppBundle]]
+        public: true

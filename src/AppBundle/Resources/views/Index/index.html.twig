@@ -1,0 +1,27 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block title %}Welcome to Symfony Blog{% endblock %}
+
+{% block body %}
+  <div class="album text-muted">
+    <div class="container">
+      {% if category %}
+        {% for key, cat in category %}
+          <h3><a href="{{ path('category', {'slug': cat.getSlug()}) }}">{{ cat.getTitle() }}</a></h3>
+          <div class="row">
+            {% for key, post in cat.getBlogPosts() %}
+              <div class="card">
+                <h2>{{ post.getTitle() }}</h2>
+                <img src="{{ asset('/uploads/images/') }}{{ post.getImage() }}" alt="Post Image">
+                <p class="card-text">{{ post.getBody() | truncate(200, true)}}</p>
+                <a href="{{ path('post_detail', {'category': cat.getSlug() ,'slug': post.getSlug()}) }}">Read more...</a>
+              </div>
+            {% endfor %}
+          </div>
+        {% endfor %}
+      {% else %}
+        <h1 class="jumbotron-heading">Category data not found</h1>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

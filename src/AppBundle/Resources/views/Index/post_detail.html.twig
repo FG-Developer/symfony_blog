@@ -1,0 +1,32 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block title %}Post Detail{% endblock %}
+
+{% block stylesheets_custom %}
+<style>
+  body{
+    min-height: auto;
+  }
+  .row{
+    margin-top: 50px;
+  }
+</style>
+{% endblock %}
+
+{% block body %}
+  <div class="container">
+    <div class="row">
+      {% if post %}
+        <div class="col-sm-8 blog-main">
+          <div class="blog-post">
+            <h2 class="blog-post-title">{{ post.getTitle() }}</h2>
+            <p class="blog-post-meta">{{ post.getCreatedAt().format('F n, Y') }}</p>
+            <img src="{{ asset('/uploads/images/') }}{{ post.getImage() }}" alt="Post Image" class="post_image"> {{ post.getBody() }}
+          </div>
+        </div>
+      {% else %}
+        <h1 class="jumbotron-heading">Post data not found</h1>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}
