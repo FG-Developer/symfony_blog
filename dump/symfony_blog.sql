@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.5.5-10.1.21-MariaDB)
 # Database: symfony
-# Generation Time: 2017-10-07 21:41:51 +0000
+# Generation Time: 2017-10-08 09:27:17 +0000
 # ************************************************************
 
 
@@ -194,36 +194,6 @@ VALUES
 UNLOCK TABLES;
 
 
-# Dump of table fos_user
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `fos_user`;
-
-CREATE TABLE `fos_user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `username_canonical` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `email_canonical` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `enabled` tinyint(1) NOT NULL,
-  `salt` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `last_login` datetime DEFAULT NULL,
-  `locked` tinyint(1) NOT NULL,
-  `expired` tinyint(1) NOT NULL,
-  `expires_at` datetime DEFAULT NULL,
-  `confirmation_token` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `password_requested_at` datetime DEFAULT NULL,
-  `roles` longtext COLLATE utf8_unicode_ci NOT NULL COMMENT '(DC2Type:array)',
-  `credentials_expired` tinyint(1) NOT NULL,
-  `credentials_expire_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `UNIQ_957A647992FC23A8` (`username_canonical`),
-  UNIQUE KEY `UNIQ_957A6479A0D96FBF` (`email_canonical`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-
-
 # Dump of table fos_user_group
 # ------------------------------------------------------------
 
@@ -294,7 +264,7 @@ LOCK TABLES `fos_user_user` WRITE;
 
 INSERT INTO `fos_user_user` (`id`, `username`, `username_canonical`, `email`, `email_canonical`, `enabled`, `salt`, `password`, `last_login`, `locked`, `expired`, `expires_at`, `confirmation_token`, `password_requested_at`, `roles`, `credentials_expired`, `credentials_expire_at`, `created_at`, `updated_at`, `date_of_birth`, `firstname`, `lastname`, `website`, `biography`, `gender`, `locale`, `timezone`, `phone`, `facebook_uid`, `facebook_name`, `facebook_data`, `twitter_uid`, `twitter_name`, `twitter_data`, `gplus_uid`, `gplus_name`, `gplus_data`, `token`, `two_step_code`)
 VALUES
-	(1,'adminuser','adminuser','ilyasdemirtas@hotmail.com.tr','ilyasdemirtas@hotmail.com.tr',1,'c102hqi34vkssocw8wgcg8kksogwgow','$2y$13$c102hqi34vkssocw8wgcguES2f7LPSEdMOku9pMdBl6X8Nh3S/bP6','2017-10-07 23:14:02',0,0,NULL,NULL,NULL,'a:1:{i:0;s:16:\"ROLE_SUPER_ADMIN\";}',0,NULL,'0000-00-00 00:00:00','2017-10-07 23:14:02',NULL,'ilyas','demirtas',NULL,NULL,'m','tr_TR','Europe/Istanbul',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+	(1,'adminuser','adminuser','test@test.com.tr','test@test.com.tr',1,'c102hqi34vkssocw8wgcg8kksogwgow','$2y$13$c102hqi34vkssocw8wgcguES2f7LPSEdMOku9pMdBl6X8Nh3S/bP6','2017-10-08 12:26:47',0,0,NULL,'utwxq-oZWKW0Fsx3TARYd7zc_4yG659CLK2Z4gW3j0s','2017-10-08 12:20:22','a:1:{i:0;s:16:\"ROLE_SUPER_ADMIN\";}',0,NULL,'0000-00-00 00:00:00','2017-10-08 12:26:47',NULL,'ilyas','demirtas',NULL,NULL,'m','tr_TR','Europe/Istanbul',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 
 /*!40000 ALTER TABLE `fos_user_user` ENABLE KEYS */;
 UNLOCK TABLES;
