@@ -22,7 +22,7 @@ class BlogPostAdmin extends AbstractAdmin
             $container = $this->getConfigurationPool()->getContainer();
             $fullPath = $container->get('request_stack')->getCurrentRequest()->getBasePath().'/'.$webPath;
 
-            $fileFieldOptions['help'] = '<img src="'.$fullPath.'" class="admin-preview" />';
+            $fileFieldOptions['help'] = '<img src="/uploads/images' . $fullPath . '" class="admin-preview" />';
         }
 
 

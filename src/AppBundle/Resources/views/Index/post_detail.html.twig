@@ -21,7 +21,7 @@
           <div class="blog-post">
             <h2 class="blog-post-title">{{ post.getTitle() }}</h2>
             <p class="blog-post-meta">{{ post.getCreatedAt().format('F n, Y') }}</p>
-            <img src="{{ asset('/uploads/images/') }}{{ post.getImage() }}" alt="Post Image" class="post_image"> {{ post.getBody() }}
+            <img src="{{ asset('/uploads/images/') }}{{ post.getImage() }}" alt="Post Image" class="post_image"> {{ post.getBody() | raw }}
           </div>
         </div>
       {% else %}
